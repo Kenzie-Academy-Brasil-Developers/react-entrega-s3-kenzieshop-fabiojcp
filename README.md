@@ -13,7 +13,7 @@ Este projeto foi criado com [Create React App](https://github.com/facebook/creat
 <img src="https://img.shields.io/badge/Vers%C3%A3o-0.1.2-blue" alt="Versão"></a>
 
 
-## 📲 Teste o [projeto](https://react-entrega-s2-kenzie-hub-fabiojcp.vercel.app/).
+## 📲 Teste o [projeto](https://react-entrega-s3-kenzieshop-fabiojcp.vercel.app/).
 
 <br>
 
