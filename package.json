@@ -1,6 +1,6 @@
 {
   "name": "react-entrega-s3-kenzieshop-fabiojcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@fontsource/finger-paint": "^4.5.8",

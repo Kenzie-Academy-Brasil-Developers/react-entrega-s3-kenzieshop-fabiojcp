@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s3-kenzieshop-fabiojcp/compare/v1.0.0...v1.1.0) (2022-06-27)
+
+
+### Features
+
+* edit item & obs in item card ([cd2afac](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s3-kenzieshop-fabiojcp/commit/cd2afac0776529befda558db95f1d843f97b80a3))
+
 ## [1.0.0](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s3-kenzieshop-fabiojcp/compare/v0.1.5...v1.0.0) (2022-06-26)
 
 ### [0.1.6](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s3-kenzieshop-fabiojcp/compare/v0.1.5...v0.1.6) (2022-06-26)
