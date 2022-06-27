@@ -16,17 +16,17 @@ import {
   Text,
   TotalPrice,
   Input,
-} from "./CardOpenStyle";
+} from "./CardEditStyle";
 import { AiOutlineClose, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddToCartThunk } from "../../Store/Modules/Cart/Thunk";
+import { AddToCartThunk, editProduct } from "../../Store/Modules/Cart/Thunk";
 
-
-export default function CardOpen({ product, setOpen }) {
+export default function CartEdit({ product, setEdit }) {
+  console.log(product);
   const dispach = useDispatch();
-  const [qnt, setQnt] = useState(1);
-  const [ obs, setObs] = useState("")
+  const [qnt, setQnt] = useState(product.qnt);
+  const [obs, setObs] = useState("");
 
   function handleQnt(type) {
     qnt === 1 && type === "plus"
@@ -36,19 +36,13 @@ export default function CardOpen({ product, setOpen }) {
       : type === "plus" && setQnt(qnt + 1);
   }
 
-  function IDgenerator() {
-    return (Date.now().toString(36) + Math.random().toString(36)).replace(
-      /\./g,
-      ""
-    );
-  }
 
   return (
     <DivMain>
       <DivProduct>
         <DivHeader>
           <SubTitle>{product.name}</SubTitle>
-          <BtnClose onClick={() => setOpen(false)}>{AiOutlineClose()}</BtnClose>
+          <BtnClose onClick={() => setEdit(false)}>{AiOutlineClose()}</BtnClose>
         </DivHeader>
         <Img background={product.img} />
         <Title>{product.name}</Title>
@@ -57,7 +51,10 @@ export default function CardOpen({ product, setOpen }) {
           R$ {product.price.toFixed(2).toString().replace(".", ",")}
         </Price>
         <Bio>Observações:</Bio>
-        <Input type="text" onChange={(event) => setObs(event.target.value)}></Input>
+        <Input
+        
+          onChange={(event) => setObs(event.target.value)}
+        >{product.obs}</Input>
       </DivProduct>
 
       <DivAddCar>
@@ -73,13 +70,18 @@ export default function CardOpen({ product, setOpen }) {
         </DivQnt>
         <DivAdd
           onClick={() => {
-            setOpen(false);
+            setEdit(false);
             dispach(
-              AddToCartThunk({ ...product, qnt: qnt, productID: IDgenerator(), obs: obs })
+              
+              editProduct({
+                ...product,
+                qnt: qnt,
+                obs: obs,
+              })
             );
           }}
         >
-          <Text>Adicionar</Text>
+          <Text>Editar</Text>
           <TotalPrice>
             R$ {(qnt * product.price).toFixed(2).toString().replace(".", ",")}
           </TotalPrice>

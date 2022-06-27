@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import CardOpen from "../../Components/CardOpen/CardOpen";
 import { Cart } from "../../Components/Cart/Cart";
 import EditProduct from "../../Components/EditProduct/EditProduct";
+import CartEdit from "../../Components/CardEdit/CardEdit";
 
 export default function Home() {
   const productCart = useSelector(({ cart }) => cart);
@@ -19,9 +20,8 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [editProd, setEditProd] = useState(false);
-  console.log("1 - " + (openCart && productCart.length !== 0));
-  console.log("2 - " + (openCart));
-  console.log("3 - " + (productCart.length !== 0));
+  const [search, setSearch] = useState("");
+  const [edit, setEdit] = useState(false);
 
   var settings = {
     dots: true,
@@ -40,7 +40,9 @@ export default function Home() {
   function renderProduct(type) {
     return products.map(
       (product, index) =>
-        product.category === type && (
+        product.category === type &&
+        (product.name.toLowerCase().includes(search.toLowerCase()) ||
+          product.bio.toLowerCase().includes(search.toLowerCase())) && (
           <ProductCard
             product={product}
             key={index}
@@ -62,9 +64,17 @@ export default function Home() {
         />
       )}
       {editProd && productCart.length > 0 && (
-        <EditProduct product={product} setEditProd={setEditProd} setOpenCart={setOpenCart}  />
+        <EditProduct
+          product={product}
+          setEditProd={setEditProd}
+          setOpenCart={setOpenCart}
+          setEdit={setEdit}
+        />
       )}
-      <Header />
+      
+      {edit && <CartEdit product={product} setEdit={setEdit} />}
+
+      <Header setSearch={setSearch} />
 
       <ShowCase>
         <Title>Em destaque!</Title>

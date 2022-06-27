@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { addToCart, removeToCart } from "./Action";
+import { addToCart, removeToCart, editToCart } from "./Action";
 import toastStyle from "../../../Styles/ToastStyle";
 
 export function AddToCartThunk(product) {
@@ -37,9 +37,11 @@ export const RemoveCartThunk = (product) => {
 export const editProduct = (product) => {
   return (dispach) => {
     const list = JSON.parse(localStorage.getItem("cart"));
-    const newList = list.map((element) => element.productID !== product.productID ? product : product);
+    console.log(list)
+    console.log(product)
+    const newList = list.map((element) => element.productID === product.productID ? product : element);
     localStorage.setItem("cart", JSON.stringify(newList));
-    dispach(removeToCart(product));
+    dispach(editToCart(newList));
     toast.success("Produto alterado!", toastStyle);
   }
 }

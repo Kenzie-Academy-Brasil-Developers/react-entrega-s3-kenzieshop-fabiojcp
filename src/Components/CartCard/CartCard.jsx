@@ -2,7 +2,7 @@ import { DivProduct, BtnEdit, Name } from "./CartCardStyle";
 import { SubTitle } from "../CardOpen/CardOpenStyle";
 import { AiOutlineEllipsis } from "react-icons/ai";
 
-export default function CartCard({ product, setEditProd, setProduct }) {
+export default function CartCard({ product, setEditProd, setProduct, }) {
   return (
     <DivProduct>
       <SubTitle>{product.qnt}x</SubTitle>

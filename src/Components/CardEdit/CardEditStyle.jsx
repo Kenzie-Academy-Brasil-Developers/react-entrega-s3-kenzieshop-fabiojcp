@@ -176,6 +176,6 @@ export const Input = styled.textarea`
       border-radius: 6px;
       border: 1px solid rgb(220, 220, 220);
       height: 20vw;
-      padding: 1vh 2vw;
+      padding: 1vh 1vw;
   }
 `
