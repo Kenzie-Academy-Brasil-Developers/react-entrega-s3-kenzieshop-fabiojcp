@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { addToCart, removeToCart, editToCart } from "./Action";
 import toastStyle from "../../../Styles/ToastStyle";
 
-export function AddToCartThunk(product) {
+export function AddToCartThunk (product) {
   const localList = JSON.parse(localStorage.getItem("cart")) || [];
   let productCheck = product;
 

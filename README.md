@@ -10,7 +10,7 @@ Nesta aplicação buscamos o gerenciamento da aplicação com o redux.
 Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 #
 <img src="https://img.shields.io/badge/progress-70%25-brightgreen.svg" alt="Progresso"></a><br>
-<img src="https://img.shields.io/badge/Vers%C3%A3o-1.0.0-blue" alt="Versão"></a>
+<img src="https://img.shields.io/badge/Vers%C3%A3o-1.2.0-blue" alt="Versão"></a>
 
 
 ## 📲 Teste o [projeto](https://react-entrega-s3-kenzieshop-fabiojcp.vercel.app/).

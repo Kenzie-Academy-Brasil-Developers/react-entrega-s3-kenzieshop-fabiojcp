@@ -90,7 +90,7 @@ const products = [
   },
 ];
 
-const productsReducer = (state = products, action) => {
+const productsReducer = (state = products) => {
   return state;
 };
 export default productsReducer;

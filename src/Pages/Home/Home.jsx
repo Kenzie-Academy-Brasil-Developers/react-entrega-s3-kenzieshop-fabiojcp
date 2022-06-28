@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ProductCard from "../../Components/ProductCard/ProductCard";
-import { ShowCase, Title, DivMain } from "./HomeStyle";
+import { ShowCase, Title, DivMain, DivProd } from "./HomeStyle";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,6 +53,13 @@ export default function Home() {
     );
   }
 
+  const [device, setDevice] = useState(window.visualViewport.width < 764);
+
+  useEffect(() => {
+    const resize = () => setDevice(window.visualViewport.width < 764);
+    window.addEventListener("resize", resize);
+  }, []);
+
   return (
     <DivMain>
       {open && <CardOpen product={product} setOpen={setOpen} />}
@@ -71,20 +78,32 @@ export default function Home() {
           setEdit={setEdit}
         />
       )}
-      
+
       {edit && <CartEdit product={product} setEdit={setEdit} />}
 
       <Header setSearch={setSearch} />
 
       <ShowCase>
-        <Title>Em destaque!</Title>
-        <Slider {...settings} style={{ margin: "0 0 2vh 0" }}>
-          {renderProduct("Combo")}
-        </Slider>
+        {device ? (
+          <>
+            <Title>Em destaque!</Title>
+            <Slider {...settings} style={{ margin: "0 0 2vh 0" }}>
+              {renderProduct("Combo")}
+            </Slider>
+          </>
+        ) : (
+          <>
+            <Title>Combos</Title>
+            <DivProd style={{ width: "113%" }}>
+              {renderProduct("Combo")}
+            </DivProd>
+          </>
+        )}
+
         <Title>Sanduíches</Title>
-        {renderProduct("Sanduíches")}
+        <DivProd>{renderProduct("Sanduíches")}</DivProd>
         <Title>Bebidas</Title>
-        {renderProduct("Bebidas")}
+        <DivProd>{renderProduct("Bebidas")}</DivProd>
       </ShowCase>
       {productCart.length > 0 && (
         <Footer openCart={openCart} setOpenCart={setOpenCart} />

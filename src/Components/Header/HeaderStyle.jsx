@@ -1,23 +1,26 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import devices from "../../Assets/Devices/Devices";
 import "@fontsource/finger-paint";
+//DivMain, DivLogo, Title, Search, Span, Input
 
 export const DivMain = styled.div`
   @media ${devices.mobileSS} {
     overflow: visible;
   }
+  @media ${devices.tablet} {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(${(props) => props.background});
+    background-repeat: repeat;
+    background-size: 3vw;
+    box-shadow: inset 0 -1.5vh 10px #ffff;
+    height: 12vh;
+  }
 `;
 
-const animation = keyframes`
-    from{
-        opacity: 0.8;
-    }
-    to{
-        opacity: 1;
-    }
-`;
 export const DivLogo = styled.div`
-  animation: ${animation} 1s;
   @media ${devices.mobileSS} {
     display: flex;
     flex-direction: row;
@@ -30,12 +33,11 @@ export const DivLogo = styled.div`
     background-size: 9vw;
     box-shadow: inset 0 -1.5vh 10px #ffff;
   }
-`;
-
-export const Logo = styled.img`
-  @media ${devices.mobileSS} {
-    src: ${(props) => props.src};
-    width: 8vw;
+  @media ${devices.tablet} {
+    background: none;
+    box-shadow: none;
+    height: 100%;
+    width: 60%;
   }
 `;
 
@@ -50,18 +52,30 @@ export const Title = styled.p`
     letter-spacing: 2vw;
     background-color: #ffffffa9;
   }
+  @media ${devices.mobileL} {
+    font-size: 7vw;
+  }
+  @media ${devices.tabletS} {
+    font-size: 5vw;
+  }
+  @media ${devices.tablet} {
+    font-size: 4vw;
+  }
 `;
 
 export const Search = styled.div`
   @media ${devices.mobileSS} {
-    position: sticky;
-    top: 0;
     height: 5vh;
     display: flex;
     justify-content: flex-start;
     width: 100vw;
     padding: 0 10vw;
-    scroll-behavior;
+  }
+  @media ${devices.tablet} {
+    height: 100%;
+    width: 40%;
+    padding: 0;
+    align-items: center;
   }
 `;
 
@@ -81,5 +95,11 @@ export const Input = styled.input`
     border-radius: 6px;
     border: none;
     background-color: #f2f2f2;
+  }
+  @media ${devices.tablet} {
+    height: 60%;
+    width: 90%;
+    padding: 0 0 0 10%;
+    font-size: 1.2vw;
   }
 `;

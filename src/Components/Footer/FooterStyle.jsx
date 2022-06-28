@@ -1,5 +1,4 @@
-// DivMain, Badge, Img, TotalQnt, Title, TotalPrice
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import devices from "../../Assets/Devices/Devices";
 
 export const DivMain = styled.span`
@@ -16,10 +15,22 @@ export const DivMain = styled.span`
     align-items: center;
     justify-content: space-between;
   }
+  @media ${devices.tablet} {
+    right: 1vw;
+    top: 15vh;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    padding: 2vw 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 export const Badge = styled.div`
-  @media ${devices.mobileSS} {
+  @media ${devices.tablet} {
+    margin: 0 0 2% 0;
   }
 `;
 
@@ -44,10 +55,15 @@ export const TotalQnt = styled.p`
     margin: 0 0 0 20px;
     border: 1px solid rgb(255, 49, 49);
   }
+  @media ${devices.tablet} {
+  }
 `;
 
 export const Title = styled.div`
   @media ${devices.mobileSS} {
+  }
+  @media ${devices.tablet} {
+    display: none;
   }
 `;
 

@@ -32,6 +32,7 @@ export const DivMain = styled.span`
     top: 0;
     left: 0;
   }
+
 `;
 export const DivText = styled.span`
   animation: ${appear} 1s;
@@ -46,6 +47,9 @@ export const DivText = styled.span`
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  @media ${devices.tablet} {
+    font-size: 2vw;
   }
 `;
 
